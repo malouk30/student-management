@@ -29,7 +29,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // CORRECTION : Utilisez le bon nom de repository
+                    
                     dockerImage = docker.build("malouk/studentmanagement:${env.BUILD_NUMBER}")
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    // CORRECTION : Variables génériques
+                     
                     withCredentials([usernamePassword(
                         credentialsId: 'dockerhub-credentials',
                         usernameVariable: 'DOCKER_USER',
